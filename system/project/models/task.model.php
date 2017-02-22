@@ -20,4 +20,18 @@ class Task_Model extends model
 
         return $objects;
     }
+
+
+    public static function createTask($task_name, $task_description)
+    {
+        // write query
+        $query = "
+            INSERT INTO `tasks` (task_name, task_description)
+            VALUES (?, ?)
+        ";
+
+        db::query($query);
+        
+    }
+
 }
