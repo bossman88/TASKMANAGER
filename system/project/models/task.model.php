@@ -12,10 +12,27 @@ class Task_Model extends model
         $query = "
             SELECT *
             FROM `tasks`
-            WHERE 1
+            WHERE `id` = 1;
         ";
         // run query and get result set
         $resultset = db::query($query);
+        
+        // retrieve all the rows as objects
+        $objects = static::fetchObjects($resultset);
+
+        return $objects;
+    }
+
+      public static function getTaskById($id)
+    {
+        // write query
+        $query = "
+            SELECT *
+            FROM `tasks`
+            WHERE `id` = ?;
+        ";
+        // run query and get result set
+        $resultset = db::query($query, $id);
         
         // retrieve all the rows as objects
         $objects = static::fetchObjects($resultset);

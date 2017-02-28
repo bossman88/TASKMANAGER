@@ -1,7 +1,12 @@
 <?php
 
+$array = array(
+	'3'
+	);
+
 $tasks = new view('home/tasks');
-$tasks->tasks = Task_Model::getTasks();
+$tasks->tasks = Task_Model::getTaskById($array);
+    
 
 $page_layout = new view('home/page_layout');
 $page_layout->tasks = $tasks;
